@@ -333,12 +333,7 @@
 <section id="m-app" v-cloak>
   <!--顶部操作提示-->
   <section class="m-p-action g-box">{{tips}}</section>
-  <a class="m-p-help" target="_blank" href="https://segmentfault.com/a/1190000021847172">?</a>
-  <a class="m-p-tamper" target="_blank" href="https://greasyfork.org/zh-CN/scripts/422237-m3u8-downloader">油猴插件</a>
-  <a class="m-p-github" target="_blank" href="https://github.com/Momo707577045/m3u8-downloader">github</a>
-  <a class="m-p-other" target="_blank" href="http://blog.luckly-mjw.cn/tool-show/index.html">其他实用工具</a>
-  <a class="m-p-language" href="http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index-en.html">English version</a>
-
+ 
   <!--广告-->
   <a v-if="isShowRefer" class="m-p-refer" target="_blank" href="https://i.qsis.cn:88/">
 
@@ -769,11 +764,11 @@ new Vue({
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js'
+          $ase.src = 'http://d.qsis.cn/m3u8-down/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js'
+          $mp4.src = 'http://d.qsis.cn/m3u8-down/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')

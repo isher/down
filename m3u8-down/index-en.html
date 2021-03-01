@@ -336,18 +336,14 @@
 
 
 
-  <!--文件载入-->
-  <div class="m-p-temp-url"></div>
-  <section class="m-p-input-container">
-    <input type="text" v-model="url" :disable="downloading" placeholder="Please input m3u8 url">
-    <template v-if="!downloading">
-      <div @click="getM3U8">download in ts</div>
-      <div @click="getMP4">download in mp4</div>
-    </template>
-    <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0" class="disable">Finish</div>
-    <div v-else @click="togglePause">{{ isPause ? 'Resume' : 'Pause' }}</div>
-  </section>
-
+  <!--文件载入--> <div class="m-p-temp-url"></div> <section class="m-p-input-
+  container"> <input type="text" v-model="url" :disable="downloading"
+  placeholder="Please input m3u8 url"> <template v-if="!downloading"> <div
+  @click="getM3U8">download in ts</div> <div @click="getMP4">download in
+  mp4</div> </template> <div v-else-if="finishNum === tsUrlList.length &&
+  tsUrlList.length > 0" class="disable">Finish</div> <div v-else
+  @click="togglePause">{{ isPause ? 'Resume' : 'Pause' }}</div> </section>
+  <div class="m-p-cross" @click="copyCode">When the resource cannot be downloaded and cross domain restriction occurs, open the console on the video source page, inject code to solve the problem, and click this button to copy the code</div>
 
   <template v-if="finishList.length > 0">
     <div class="m-p-line"></div>

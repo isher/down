@@ -348,6 +348,8 @@
     <div v-else @click="togglePause">{{ isPause ? 'Resume' : 'Pause' }}</div>
   </section>
 
+  <div class="m-p-cross" @click="copyCode">When the resource cannot be downloaded and cross domain restriction occurs, open the console on the video source page, inject code to solve the problem, and click this button to copy the code</div>
+  <a class="m-p-final" target="_blank" href="https://segmentfault.com/a/1190000025182822">Can't watch the downloaded video? Try the terminal solution "undifferentiated video extraction tool", with the "tamperMonkey" plugin!!!</a>
 
   <template v-if="finishList.length > 0">
     <div class="m-p-line"></div>

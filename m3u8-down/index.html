@@ -340,14 +340,13 @@
   <a class="m-p-language" href="http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index-en.html">English version</a>
 
   <!--广告-->
-  <a v-if="isShowRefer" class="m-p-refer" target="_blank" href="https://segmentfault.com/a/1190000024416860">
-    <img src="./imgs/001.png" class="link">
-    <img src="./imgs/003.png" class="text">
+  <a v-if="isShowRefer" class="m-p-refer" target="_blank" href="https://i.qsis.cn:88/">
+
     <i class="close" @click.prevent="isShowRefer=false"></i>
   </a>
 
   <!--文件载入-->
-  <div class="m-p-temp-url">测试链接：http://1257120875.vod2.myqcloud.com/0ef121cdvodtransgzp1257120875/3055695e5285890780828799271/v.f230.m3u8</div>
+  <div class="m-p-temp-url"></div>
   <section class="m-p-input-container">
     <input type="text" v-model="url" :disable="downloading" placeholder="请输入 m3u8 链接">
     <template v-if="!downloading">
@@ -384,9 +383,9 @@ var _hmt = _hmt || [];
 })();
 </script>
 <!--vue 前端框架-->
-<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
-<script src="http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js"></script>
-<script src="http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js"></script>
+<script src="https://d.qsis.cn/m3u8-down/vue.min.js"></script>
+<script src="https://d.qsis.cn/m3u8-down/aes-decryptor.js"></script>
+<script src="https://d.qsis.cn/m3u8-down/mux-mp4.js"></script>
 
 <script>
 // script注入
@@ -778,7 +777,7 @@ new Vue({
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://cdn.bootcss.com/vue/2.6.10/vue.min.js'
+          $vue.src = 'https://d.qsis.cn/m3u8-down/vue.min.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})

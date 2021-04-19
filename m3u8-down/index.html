@@ -372,11 +372,12 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?1f12b0865d866ae1b93514870d93ce89";
-  var s = document.getElementsByTagName("script")[0];
+  hm.src = "https://hm.baidu.com/hm.js?8c5c9d0fcbddf3f181a47e183235a807";
+  var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
 <!--vue 前端框架-->
 <script src="https://d.qsis.cn/m3u8-down/vue.min.js"></script>
 <script src="https://d.qsis.cn/m3u8-down/aes-decryptor.js"></script>
@@ -491,7 +492,7 @@ new Vue({
       if (!this.url) {
         alert('请输入链接')
         return
-      } else if (this.url.toLowerCase().indexOf('m3u8') === -1) {
+      } else if (this.url.toLowerCase().indexOf('') === -1) {
         alert('链接有误，请重新输入')
         return
       } else if (this.downloading) {

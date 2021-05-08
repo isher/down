@@ -493,8 +493,7 @@ new Vue({
         alert('请输入链接')
         return
       } else if (this.url.toLowerCase().indexOf('') === -1) {
-        alert('链接有误，请重新输入')
-        return
+        alert('链接为m3u8地址')
         } else if (this.url.toLowerCase().indexOf('m3u8') === -1) {
         alert('链接有误，请重新输入')
         return

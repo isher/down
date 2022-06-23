@@ -522,7 +522,15 @@ new Vue({
                 title: item,
                 status: ''
               })
+            }else if (item.toLowerCase().indexOf('') > -1) {
+              this.tsUrlList.push(this.applyURL(item, this.url))
+              this.finishList.push({
+                title: item,
+                status: ''
+              })
             }
+              
+              
           })
 
           // 检测视频 AES 加密

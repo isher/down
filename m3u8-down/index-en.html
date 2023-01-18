@@ -352,6 +352,7 @@
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
   </section>
 
+  <div class="m-p-cross" @click="copyCode">当无法下载，资源发生跨域限制时，在视频源页面打开控制台，注入代码解决，点击本按钮复制代码</div>
   <a class="m-p-final" target="_blank" href="https://isher.qsis.cn">更多内容</a>
 
   <template v-if="finishList.length > 0">
@@ -492,28 +493,14 @@ new Vue({
         alert('请输入链接')
         return
       } else if (this.url.toLowerCase().indexOf('m3u8') === -1) {
-          alert('链接为m3u8地址')
-        } else if (this.url.toLowerCase().indexOf('') === -1) {
-        alert('链接为/结尾的地址')
-        return
-      } else if (this.downloading) {
-        alert('资源下载中，请稍后')
-        return
-      }
-        
-        
-        
-      } else if (this.url.toLowerCase().indexOf('') === -1) {
         alert('链接为m3u8地址')
-        } else if (this.url.toLowerCase().indexOf('m3u8') === -1) {
+        } else if (this.url.toLowerCase().indexOf('') === -1) {
         alert('链接有误，请重新输入')
         return
       } else if (this.downloading) {
         alert('资源下载中，请稍后')
         return
       }
-      
-      
 
       this.downloading = true
 
@@ -785,15 +772,19 @@ new Vue({
           $section.style.zIndex = '9999'
           $section.style.backgroundColor = 'white'
           document.body.appendChild($section);
+
           // 加载 ASE 解密
           let $ase = document.createElement('script')
           $ase.src = 'http://d.qsis.cn/m3u8-down/aes-decryptor.js'
+
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
           $mp4.src = 'http://d.qsis.cn/m3u8-down/mux-mp4.js'
+
           // 加载 vue
           let $vue = document.createElement('script')
           $vue.src = 'https://d.qsis.cn/m3u8-down/vue.min.js'
+
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})
           document.body.appendChild($vue);

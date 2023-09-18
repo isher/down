@@ -349,10 +349,36 @@
       <div @click="getMP4">转码为MP4下载</div>
     </template>
     <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0" class="disable">下载完成</div>
+    <script>
+  // 在Vue实例中，监听条件的变化
+  new Vue({
+    el: '#app', // 替换为您的Vue根元素的选择器
+    data: {
+      finishNum: 0, // 假设您的数据属性是finishNum
+      tsUrlList: [] // 假设您的数据属性是tsUrlList
+    },
+    watch: {
+      // 监听 finishNum 和 tsUrlList 的变化
+      finishNum: 'checkAndRefresh',
+      tsUrlList: 'checkAndRefresh'
+    },
+    methods: {
+      checkAndRefresh() {
+        // 检查条件是否成立
+        if (this.finishNum === this.tsUrlList.length && this.tsUrlList.length > 0) {
+          // 如果条件成立，等待5秒后刷新页面
+          setTimeout(() => {
+            location.reload();
+          }, 5000); // 5000毫秒等于5秒
+        }
+      }
+    }
+  });
+</script>
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
   </section>
 
-  <div class="m-p-cross" @click="copyCode">当无法下载，资源发生跨域限制时，在视频源页面打开控制台，注入代码解决，点击本按钮复制代码</div>
+
   <a class="m-p-final" target="_blank" href="https://isher.qsis.cn">更多内容</a>
 
   <template v-if="finishList.length > 0">
@@ -492,9 +518,9 @@ new Vue({
       if (!this.url) {
         alert('请输入链接')
         return
-      } else if (this.url.toLowerCase().indexOf('') === -1) {
+      } else if (this.url.toLowerCase().indexOf('m3u8') === -1) {
         alert('链接为m3u8地址')
-        } else if (this.url.toLowerCase().indexOf('m3u8') === -1) {
+        } else if (this.url.toLowerCase().indexOf('') === -1) {
         alert('链接有误，请重新输入')
         return
       } else if (this.downloading) {
@@ -516,21 +542,13 @@ new Vue({
             if (this.isGetMP4 && item.toUpperCase().indexOf('#EXTINF:') > -1) { // 计算视频总时长，设置 mp4 信息时使用
               this.durationSecond += parseFloat(item.split('#EXTINF:')[1])
             }
-            if (item.toLowerCase().indexOf('.ts') > -1) {
-              this.tsUrlList.push(this.applyURL(item, this.url))
-              this.finishList.push({
-                title: item,
-                status: ''
-              })
-            }else if (item.toLowerCase().indexOf('') > -1) {
+            if ((item.toLowerCase().indexOf('.ts') > -1) && (item.toLowerCase().indexOf('') > -1) ) {
               this.tsUrlList.push(this.applyURL(item, this.url))
               this.finishList.push({
                 title: item,
                 status: ''
               })
             }
-              
-              
           })
 
           // 检测视频 AES 加密

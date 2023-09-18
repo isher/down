@@ -183,4 +183,472 @@
 
       28% {
         transform: rotate(-10deg);
-        transition-timing-function: cubic-be
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      36% {
+        transform: rotate(9deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      44% {
+        transform: rotate(-6deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      52% {
+        transform: rotate(4deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      60% {
+        transform: rotate(-2deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      68% {
+        transform: rotate(1deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      76% {
+        transform: rotate(0deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    /* 下载区域 */
+    .m-p-download {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px 0;
+      box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    .m-p-download .tip {
+      margin-bottom: 10px;
+    }
+
+    .m-p-download input[type="text"],
+    .m-p-download button,
+    .m-p-download .select-all {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      font-size: 20px;
+    }
+
+    .m-p-download input[type="text"] {
+      width: 400px;
+      height: 36px;
+      border: 1px solid #d9d9d9;
+      border-radius: 2px;
+      outline: none;
+      padding: 5px;
+    }
+
+    .m-p-download button {
+      margin-left: 10px;
+      background-color: #4E84E6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .m-p-download button:hover {
+      background-color: #2E69C4;
+    }
+
+    .m-p-download .select-all {
+      margin-left: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .m-p-download .result {
+      margin-top: 20px;
+      text-align: left;
+      line-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .m-p-download .result a {
+      color: #0366d6;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .m-p-download .result a:hover {
+      text-decoration: underline;
+    }
+
+    .m-p-download .result .failed {
+      color: red;
+    }
+
+    .m-p-download .progress {
+      margin-top: 20px;
+      height: 5px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .m-p-download .progress-bar {
+      height: 100%;
+      background-color: #4E84E6;
+      border-radius: 5px;
+      width: 0;
+    }
+
+    /* 多URL下载区域 */
+    .m-p-download.m-p-download-multi {
+      background-color: #f0f0f0;
+    }
+
+    .m-p-download.m-p-download-multi .download-input {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .m-p-download.m-p-download-multi .download-input input[type="text"] {
+      width: 80%;
+    }
+
+    .m-p-download.m-p-download-multi .download-input button {
+      width: 15%;
+    }
+
+    .m-p-download.m-p-download-multi .download-input button.add-input {
+      margin-left: 5%;
+      background-color: #34d058;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    .m-p-download.m-p-download-multi .download-input button.add-input:hover {
+      background-color: #28a745;
+    }
+
+    .m-p-download.m-p-download-multi .download-input button.remove-input {
+      margin-left: 5%;
+      background-color: #d73a49;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    .m-p-download.m-p-download-multi .download-input button.remove-input:hover {
+      background-color: #c83c45;
+    }
+
+    /* 弹窗 */
+    .m-p-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 9999;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .m-p-modal .m-p-modal-content {
+      display: inline-block;
+      max-width: 800px;
+      width: 100%;
+      margin-top: 10%;
+      border-radius: 4px;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .m-p-modal .m-p-modal-header {
+      background-color: #f5f5f5;
+      border-radius: 4px 4px 0 0;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    .m-p-modal .m-p-modal-header h2 {
+      margin: 0;
+    }
+
+    .m-p-modal .m-p-modal-body {
+      padding: 20px;
+    }
+
+    .m-p-modal .m-p-modal-footer {
+      background-color: #f5f5f5;
+      border-radius: 0 0 4px 4px;
+      padding: 10px 20px;
+      text-align: right;
+    }
+
+    .m-p-modal .m-p-modal-footer button {
+      background-color: #4E84E6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .m-p-modal .m-p-modal-footer button:hover {
+      background-color: #2E69C4;
+    }
+
+    /* 下载进度条 */
+    .m-p-modal-progress {
+      display: none;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .m-p-modal-progress .progress-text {
+      font-size: 14px;
+    }
+
+    .m-p-modal-progress .progress-bar {
+      height: 5px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+    }
+
+    .m-p-modal-progress .progress-bar .progress-inner {
+      height: 100%;
+      background-color: #4E84E6;
+      border-radius: 5px;
+      width: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="m-app" v-cloak>
+    <div class="m-p-action">
+      <p>输入m3u8链接，点击下载</p>
+      <p>
+        <input type="text" v-model="url" placeholder="输入m3u8链接">
+        <button @click="downloadSingle">下载</button>
+        <span class="select-all" @click="selectAll">全选</span>
+      </p>
+    </div>
+    <div class="m-p-download">
+      <div class="result" v-for="(item, index) in downloadList" :key="index">
+        <span>
+          <a :href="item.url" target="_blank">{{ item.name }}</a> - <span :class="item.status">{{ item.statusText }}</span>
+        </span>
+        <div class="progress">
+          <div class="progress-bar" :style="{ width: item.progress + '%' }"></div>
+        </div>
+      </div>
+    </div>
+    <div class="m-p-download m-p-download-multi">
+      <div class="download-input" v-for="(url, index) in multiUrls" :key="index">
+        <input type="text" v-model="url" :placeholder="'输入m3u8链接 ' + (index + 1)">
+        <button @click="downloadSingle(index)">下载</button>
+        <button class="add-input" @click="addInput(index)">添加</button>
+        <button class="remove-input" @click="removeInput(index)">移除</button>
+      </div>
+    </div>
+    <div class="m-p-help" @click="toggleHelp">
+      ?
+    </div>
+    <div class="m-p-tamper" @click="toggleTamper">
+      变量
+    </div>
+    <div class="m-p-github" @click="openGithub">
+      GitHub
+    </div>
+    <div class="m-p-language" @click="changeLanguage">
+      English
+    </div>
+    <div class="m-p-refer">
+      <a class="text" href="https://momo.fan" target="_blank">Momo's Blog</a>
+      <a class="close" @click="closeRefer"></a>
+      <a class="link" href="https://github.com/MoePlayer/DPlayer/releases" target="_blank"></a>
+    </div>
+    <div class="m-p-modal" v-if="showModal">
+      <div class="m-p-modal-content">
+        <div class="m-p-modal-header">
+          <h2>使用说明</h2>
+        </div>
+        <div class="m-p-modal-body">
+          <p>1. 在输入框中输入m3u8链接，然后点击下载按钮，等待下载完成。</p>
+          <p>2. 可以点击全选按钮，将所有下载链接都选中。</p>
+          <p>3. 也可以使用多URL下载功能，输入多个m3u8链接，分别下载它们。</p>
+          <p>4. 部分m3u8链接可能需要解密，你可以在变量设置中配置解密参数。</p>
+          <p>5. 有问题或建议，欢迎在 GitHub 上提交问题或 Pull Request。</p>
+        </div>
+        <div class="m-p-modal-footer">
+          <button @click="closeModal">关闭</button>
+        </div>
+      </div>
+    </div>
+    <div class="m-p-modal-progress" v-if="showProgress">
+      <div class="progress-text">正在下载 {{ currentUrl }}:</div>
+      <div class="progress-bar">
+        <div class="progress-inner" :style="{ width: currentProgress + '%' }"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#m-app',
+      data: {
+        url: '',
+        downloadList: [],
+        showModal: false,
+        showProgress: false,
+        currentUrl: '',
+        currentProgress: 0,
+        multiUrls: [''],
+        tamperScript: `var player = document.getElementsByTagName('video')[0];
+        if (player) {
+          player.oncontextmenu = null;
+          player.onkeydown = null;
+          player.onmousedown = null;
+          player.onselectstart = null;
+          player.ontouchend = null;
+        }`,
+        language: 'zh-cn'
+      },
+      methods: {
+        downloadSingle: function (index) {
+          if (typeof index !== 'number') {
+            index = -1;
+          }
+          var url = index === -1 ? this.url : this.multiUrls[index];
+          if (!url) {
+            alert('请输入有效的m3u8链接');
+            return;
+          }
+          this.showProgress = true;
+          this.currentUrl = url;
+          this.currentProgress = 0;
+          this.$forceUpdate();
+          axios.get('/download', {
+            params: {
+              url: url,
+              tamperScript: this.tamperScript
+            },
+            onDownloadProgress: (e) => {
+              if (e.lengthComputable) {
+                this.currentProgress = Math.round((e.loaded / e.total) * 100);
+              }
+            }
+          }).then((res) => {
+            this.showProgress = false;
+            var name = res.data.name;
+            var status = res.data.status;
+            this.downloadList.unshift({
+              name: name,
+              url: '/download/' + name,
+              status: status,
+              statusText: status === 'success' ? '下载完成' : '下载失败',
+              progress: 100
+            });
+            if (index !== -1) {
+              this.multiUrls.splice(index, 1);
+            }
+            this.$forceUpdate();
+          }).catch((err) => {
+            this.showProgress = false;
+            if (index !== -1) {
+              this.multiUrls.splice(index, 1);
+            }
+            console.error(err);
+          });
+        },
+        selectAll: function () {
+          if (this.downloadList.length === 0) {
+            return;
+          }
+          var selectedCount = this.downloadList.filter(item => item.status === 'success').length;
+          var allSelected = selectedCount === this.downloadList.length;
+          if (allSelected) {
+            this.downloadList.forEach(item => {
+              item.selected = false;
+            });
+          } else {
+            this.downloadList.forEach(item => {
+              if (item.status === 'success') {
+                item.selected = true;
+              }
+            });
+          }
+          this.$forceUpdate();
+        },
+        toggleHelp: function () {
+          this.showModal = !this.showModal;
+        },
+        closeModal: function () {
+          this.showModal = false;
+        },
+        toggleTamper: function () {
+          var tamperScript = prompt('请输入变量设置（留空表示不设置）：', this.tamperScript);
+          if (tamperScript !== null) {
+            this.tamperScript = tamperScript;
+          }
+        },
+        openGithub: function () {
+          window.open('https://github.com/MoePlayer/DPlayer');
+        },
+        changeLanguage: function () {
+          if (this.language === 'zh-cn') {
+            this.language = 'en';
+          } else {
+            this.language = 'zh-cn';
+          }
+          this.$forceUpdate();
+        },
+        closeRefer: function () {
+          this.$el.querySelector('.m-p-refer').style.display = 'none';
+        },
+        addInput: function (index) {
+          this.multiUrls.splice(index + 1, 0, '');
+        },
+        removeInput: function (index) {
+          this.multiUrls.splice(index, 1);
+        }
+      },
+      watch: {
+        tamperScript: function () {
+          this.multiUrls.forEach((url, index) => {
+            if (url) {
+              this.downloadSingle(index);
+            }
+          });
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
+

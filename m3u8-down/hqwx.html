@@ -349,31 +349,36 @@
       <div @click="getMP4">转码为MP4下载</div>
     </template>
     <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0" class="disable">下载完成</div>
-    <script>
-  // 在Vue实例中，监听条件的变化
-  new Vue({
-    el: '#app', // 替换为您的Vue根元素的选择器
-    data: {
-      finishNum: 0, // 假设您的数据属性是finishNum
-      tsUrlList: [] // 假设您的数据属性是tsUrlList
-    },
-    watch: {
-      // 监听 finishNum 和 tsUrlList 的变化
-      finishNum: 'checkAndRefresh',
-      tsUrlList: 'checkAndRefresh'
-    },
-    methods: {
-      checkAndRefresh() {
-        // 检查条件是否成立
-        if (this.finishNum === this.tsUrlList.length && this.tsUrlList.length > 0) {
-          // 如果条件成立，等待5秒后刷新页面
-          setTimeout(() => {
-            location.reload();
-          }, 5000); // 5000毫秒等于5秒
-        }
-      }
+<script>
+export default {
+  data() {
+    return {
+      finishNum: 0, // 假设这是您的完成数量
+      tsUrlList: [], // 假设这是您的URL列表
+    };
+  },
+  created() {
+    // 在组件创建时执行
+    if (this.finishNum === this.tsUrlList.length && this.tsUrlList.length > 0) {
+      // 假设条件成立时开始倒计时
+      this.startCountdown();
     }
-  });
+  },
+  methods: {
+    startCountdown() {
+      let countdown = 5; // 设置倒计时秒数
+
+      const interval = setInterval(() => {
+        if (countdown > 0) {
+          countdown--;
+        } else {
+          clearInterval(interval); // 清除定时器
+          location.reload(); // 刷新页面
+        }
+      }, 1000); // 每秒执行一次
+    },
+  },
+};
 </script>
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
   </section>

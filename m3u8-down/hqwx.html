@@ -348,38 +348,8 @@
       <div @click="getM3U8">原格式下载</div>
       <div @click="getMP4">转码为MP4下载</div>
     </template>
-    <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0" class="disable">下载完成</div>
-<script>
-export default {
-  data() {
-    return {
-      finishNum: 0, // 假设这是您的完成数量
-      tsUrlList: [], // 假设这是您的URL列表
-    };
-  },
-  created() {
-    // 在组件创建时执行
-    if (this.finishNum === this.tsUrlList.length && this.tsUrlList.length > 0) {
-      // 假设条件成立时开始倒计时
-      this.startCountdown();
-    }
-  },
-  methods: {
-    startCountdown() {
-      let countdown = 5; // 设置倒计时秒数
+    <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0" class="disable">下载完成</div><div @click="getMP4">转码为MP4下载</div>
 
-      const interval = setInterval(() => {
-        if (countdown > 0) {
-          countdown--;
-        } else {
-          clearInterval(interval); // 清除定时器
-          location.reload(); // 刷新页面
-        }
-      }, 1000); // 每秒执行一次
-    },
-  },
-};
-</script>
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
   </section>
 

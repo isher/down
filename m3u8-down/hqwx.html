@@ -348,8 +348,7 @@
       <div @click="getM3U8">原格式下载</div>
       <div @click="getMP4">转码为MP4下载</div>
     </template>
-    <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0"  @click="getMP4">下载完成-贴新地址继续MP4下载</div>
-
+    <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0" class="disable">下载完成</div>
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
   </section>
 
@@ -686,27 +685,27 @@ new Vue({
     },
 
     // 下载整合后的TS文件
-    downloadFile(fileDataList, fileName) {
-      this.tips = 'ts 碎片整合中，请留意浏览器下载'
-      let fileBlob = null
-      let a = document.createElement('a')
-      if (this.isGetMP4) {
-        fileBlob = new Blob(fileDataList, { type: 'video/mp4' }) // 创建一个Blob对象，并设置文件的 MIME 类型
-        a.download = fileName + '.mp4'
-      } else {
-        fileBlob = new Blob(fileDataList, { type: 'video/MP2T' }) // 创建一个Blob对象，并设置文件的 MIME 类型
-        a.download = fileName + '.ts'
-      }
-      a.href = URL.createObjectURL(fileBlob)
-      a.style.display = 'none'
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
+downloadFile(fileDataList, fileName) {
+  this.tips = 'ts 碎片整合中，请留意浏览器下载';
+  let fileBlob = null;
+  let a = document.createElement('a');
+  if (this.isGetMP4) {
+    fileBlob = new Blob(fileDataList, { type: 'video/mp4' });
+    a.download = fileName + '.mp4';
+  } else {
+    fileBlob = new Blob(fileDataList, { type: 'video/MP2T' });
+    a.download = fileName + '.ts';
+  }
+  a.href = URL.createObjectURL(fileBlob);
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 
-      setTimeout(() => {
-  location.reload();
-}, 5000); // 5000 毫秒（即5秒）后刷新页面
-    },
+  setTimeout(() => {
+    location.reload();
+  }, 5000); // 5000 毫秒（即5秒）后刷新页面
+},
 
     // 格式化时间
     formatTime(date, formatStr) {

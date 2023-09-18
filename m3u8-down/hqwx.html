@@ -702,6 +702,10 @@ new Vue({
       document.body.appendChild(a)
       a.click()
       a.remove()
+
+      setTimeout(() => {
+  location.reload();
+}, 5000); // 5000 毫秒（即5秒）后刷新页面
     },
 
     // 格式化时间

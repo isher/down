@@ -348,7 +348,7 @@
       <div @click="getM3U8">原格式下载</div>
       <div @click="getMP4">转码为MP4下载</div>
     </template>
-    <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0" class="disable">下载完成</div><div @click="getMP4">转码为MP4下载</div>
+    <div v-else-if="finishNum === tsUrlList.length && tsUrlList.length > 0"  @click="getMP4">下载完成-贴新地址继续MP4下载</div>
 
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
   </section>

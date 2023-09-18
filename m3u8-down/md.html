@@ -1,1 +1,186 @@
+<!doctype html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="m3u8 downloader for web">
+  <meta name="description" content="m3u8 downloader for web, Momo's Blog, LuckyMomo">
+  <title>m3u8 downloader</title>
+  <style>
+    /* 全局设置 */
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body::-webkit-scrollbar {
+      display: none
+    }
+
+    p {
+      margin: 0;
+    }
+
+    [v-cloak] {
+      display: none;
+    }
+
+    #m-app {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      padding: 10px 50px 80px;
+      box-sizing: border-box;
+    }
+
+    .m-p-action {
+      margin: 20px auto;
+      max-width: 1100px;
+      width: 100%;
+      font-size: 35px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .m-p-other,
+    .m-p-tamper,
+    .m-p-github,
+    .m-p-language {
+      position: fixed;
+      right: 50px;
+      background-color: #eff3f6;
+      background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+      color: #24292e;
+      border: 1px solid rgba(27, 31, 35, .2);
+      border-radius: 3px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      padding: 6px 12px;
+      z-index: 99;
+    }
+
+    .m-p-help {
+      position: fixed;
+      right: 50px;
+      top: 50px;
+      width: 30px;
+      height: 30px;
+      color: #666666;
+      z-index: 2;
+      line-height: 30px;
+      font-weight: bolder;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background-color: #eff3f6;
+      background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+    }
+
+    .m-p-github:hover,
+    .m-p-other:hover,
+    .m-p-tamper:hover,
+    .m-p-help:hover,
+    .m-p-language:hover {
+      opacity: 0.9;
+    }
+
+    .m-p-language {
+      bottom: 30px;
+    }
+
+    .m-p-other {
+      bottom: 70px;
+    }
+
+    .m-p-tamper {
+      bottom: 110px;
+    }
+
+    .m-p-github {
+      bottom: 150px;
+    }
+
+    /* 广告 */
+    .m-p-refer {
+      position: absolute;
+      left: 50px;
+      bottom: 50px;
+    }
+
+    .m-p-refer .text {
+      position: absolute;
+      top: -80px;
+      left: -40px;
+      animation-name: upAnimation;
+      transform-origin: center bottom;
+      animation-duration: 2s;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+      animation-delay: .5s;
+    }
+
+    .m-p-refer .close {
+      display: block;
+      position: absolute;
+      top: -110px;
+      right: -50px;
+      padding: 0;
+      margin: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+      transition: 0.3s all;
+      background-size: 30px 30px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: url(./imgs/close.png);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .m-p-refer .close:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .m-p-refer .link {
+      border-radius: 4px;
+      text-decoration: none;
+      background-color: #4E84E6;
+      transition: 0.3s all;
+    }
+
+    .m-p-refer .link:hover {
+      top: -10px;
+      color: #333333;
+      border: 1px solid transparent;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 2px 11px 20px 0 rgba(0, 0, 0, 0.6);
+    }
+
+    @keyframes upAnimation {
+      0% {
+        transform: rotate(0deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      10% {
+        transform: rotate(-12deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      20% {
+        transform: rotate(12deg);
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+      }
+
+      28% {
+        transform: rotate(-10deg);
+        transition-timing-function: cubic-be
